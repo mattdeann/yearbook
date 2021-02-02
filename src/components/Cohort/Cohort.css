@@ -1,1 +1,11 @@
 
+.cohort {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+}
+
+.person-image {
+  height: 15rem;
+  width: 15rem;
+  object-fit: cover;
+}
