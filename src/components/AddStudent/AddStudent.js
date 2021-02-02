@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import './AddStudent.css';
 
 class AddStudent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super()
+
     this.state = {
       id: '',
       name: '',
@@ -12,11 +13,25 @@ class AddStudent extends Component {
       superlative: '',
       photo: '',
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({[event.target.id]: event.target.value});
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    console.log("done")
+    event.preventDefault();
+
+    this.props.appendStudents({
+      id: this.state.id,
+      name: this.state.name,
+      quote: this.state.quote,
+      superlative: this.state.superlative,
+      photo: this.state.photo
+    })
   }
 
   render() {
@@ -24,11 +39,11 @@ class AddStudent extends Component {
       <div className="AddStudent">
         <h2>Add A New Student</h2>
         <form onSubmit={this.handleSubmit}>
-          <input placeholder="id"></input>
-          <input placeholder="name"></input>
-          <input placeholder="quote"></input>
-          <input placeholder="superlative"></input>
-          <input placeholder="photo"></input>
+          <input id="id" type="text" value={this.state.id} onChange={this.handleChange} placeholder="id"></input>
+          <input id="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="name"></input>
+          <input id="quote" type="text" value={this.state.quote} onChange={this.handleChange} placeholder="quote"></input>
+          <input id="superlative" type="text" value={this.state.superlative} onChange={this.handleChange} placeholder="superlative"></input>
+          <input id="photo" type="text" value={this.state.photo} onChange={this.handleChange} placeholder="photo"></input>
           <button>Submit</button>
         </form>
       </div>

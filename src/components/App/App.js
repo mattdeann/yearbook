@@ -9,8 +9,16 @@ class App extends Component {
     super();
     this.state = {
       staff: people.staff,
-      students: people.students
+      students: people.students,
     }
+
+    this.appendStudents = this.appendStudents.bind(this)
+  }
+
+  appendStudents(newStudent) {
+    this.setState({
+      students: [...this.state.students, newStudent]
+    })
   }
 
   render() {
@@ -19,7 +27,7 @@ class App extends Component {
       <header className="App-header">
       <h1>Turing Yearbook</h1>
       </header>
-      <AddStudent />
+      <AddStudent data={this.state.students} appendStudents={this.appendStudents}/>
       <Cohort data={this.state.staff}/>
       <Cohort data={this.state.students}/>
       </div>
