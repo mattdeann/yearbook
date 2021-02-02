@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import people from '../../data/yearbook-data.js';
 import './AddStudent.css';
 
 class AddStudent extends Component {
-  constructor(props) {
+  constructor() {
     super()
 
     this.state = {
