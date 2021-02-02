@@ -5,7 +5,7 @@ function Person(props) {
   const person = props.data
 
   return (
-    <div>
+    <div >
       <p>{person.name}</p>
       <img className="person-image" src={person.photo} alt="personal"/>
       <p>{person.quote}</p>

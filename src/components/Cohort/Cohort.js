@@ -9,7 +9,7 @@ function Cohort(props) {
         Staff
       </h1>
       <section className="cohort">
-        {props.data.map(person => <Person data={person} />)}
+        {props.data.map(person => <Person data={person} key={person.id}/>)}
       </section>
     </>
   )
